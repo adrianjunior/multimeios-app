@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button *ngIf="searchEnabled == true" (click)="toggleSearch()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="searchEnabled == false" (click)="toggleSearch()">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Notícias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar animated placeholder="Buscar Notícia" *ngIf="searchEnabled == true"></ion-searchbar>
+  <ion-list lines>
+    <ion-item *ngFor="let new of news; let i = index" class="news">
+      <ion-card>
+        <ion-img [src]=""></ion-img>
+        <ion-card-header>
+          <ion-card-title color="primary">Título da Notícia</ion-card-title>
+          <ion-card-subtitle color="medium">DD/MM/AAAA</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
